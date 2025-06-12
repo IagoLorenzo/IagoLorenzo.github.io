@@ -1,0 +1,42 @@
+body {
+  background-color: #0d1117;
+  color: #c9d1d9;
+  font-family: monospace;
+  margin: 0;
+  padding: 0 20px;
+}
+
+header {
+  background-color: #161b22;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #58a6ff;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #58a6ff;
+  border-bottom: 1px solid #30363d;
+}
+
+a {
+  color: #79c0ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #161b22;
+  font-size: 0.9em;
+  color: #8b949e;
+  margin-top: 40px;
+}
+
