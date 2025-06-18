@@ -6,7 +6,7 @@ const posts = [
   },
   {
     title: "Cómo convertir tu Arduino en un Rubber Ducky",
-    resumen: "Una guía detallada para transformar tu Arduino Pro Micro en un teclado HID para pentesting.",
+    resumen: "Una guía detallada para transformar tu Arduino uno R4 mínima en un teclado HID para pentesting.",
     link: "blog/post2.html"
   }
 ];
