@@ -1,3 +1,52 @@
+/* Fuente hacker */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Share Tech Mono', monospace;
+  background-color: #0f0f0f;
+  color: #e0e0e0;
+}
+
+a {
+  color: #00ffe0;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  background-color: #111;
+  padding: 2rem 0;
+  text-align: center;
+  border-bottom: 1px solid #222;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+nav a {
+  margin: 0 1rem;
+  font-weight: bold;
+}
+
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+h2 {
+  color: #00ffe0;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.5rem;
+}
+
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -5,20 +54,26 @@
 }
 
 .card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  background-color: #1b1b1b;
   padding: 1rem;
-  width: 300px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border: 1px solid #333;
+  border-radius: 8px;
+  flex: 1 1 250px;
 }
 
-#paginacion {
+footer {
+  background-color: #111;
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 1px solid #222;
+}
+
+#blog-entries .card {
+  margin-bottom: 1rem;
+}
+
+#pagination {
   margin-top: 1rem;
   text-align: center;
-}
-
-#paginacion button {
-  margin: 0 0.5rem;
-  padding: 0.5rem 1rem;
 }
 

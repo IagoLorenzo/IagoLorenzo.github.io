@@ -1,52 +1,54 @@
-const entradas = [
+const posts = [
   {
-    titulo: "Proyecto OSINT con Gemini y Python",
+    title: "Proyecto OSINT con Gemini y Python",
     resumen: "Un análisis completo sobre cómo hacer OSINT de imágenes en Instagram usando Google AI y Python.",
-    enlace: "blog/entrada1.html"
+    link: "blog/post1.html"
   },
   {
-    titulo: "Cómo convertir tu Arduino en un Rubber Ducky",
-    resumen: "Guía paso a paso para usar un Arduino Pro Micro como emulador HID para pentesting.",
-    enlace: "blog/entrada2.html"
-  },
-  // Añade más entradas aquí
+    title: "Cómo convertir tu Arduino en un Rubber Ducky",
+    resumen: "Una guía detallada para transformar tu Arduino Pro Micro en un teclado HID para pentesting.",
+    link: "blog/post2.html"
+  }
 ];
 
 const porPagina = 2;
 let paginaActual = 1;
 
 function mostrarEntradas() {
-  const inicio = (paginaActual - 1) * porPagina;
-  const fin = inicio + porPagina;
-  const entradasPagina = entradas.slice(inicio, fin);
-
-  const contenedor = document.getElementById("blog-entradas");
+  const contenedor = document.getElementById("blog-entries");
   contenedor.innerHTML = "";
 
-  entradasPagina.forEach(entrada => {
-    const div = document.createElement("div");
-    div.className = "card";
-    div.innerHTML = `<h3>${entrada.titulo}</h3><p>${entrada.resumen}</p><a href="${entrada.enlace}">Leer más →</a>`;
-    contenedor.appendChild(div);
+  const inicio = (paginaActual - 1) * porPagina;
+  const fin = inicio + porPagina;
+
+  posts.slice(inicio, fin).forEach(post => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <h3>${post.title}</h3>
+      <p>${post.resumen}</p>
+      <a href="${post.link}">Leer más →</a>
+    `;
+    contenedor.appendChild(card);
   });
 
-  generarPaginacion();
+  mostrarPaginacion();
 }
 
-function generarPaginacion() {
-  const totalPaginas = Math.ceil(entradas.length / porPagina);
-  const paginacion = document.getElementById("paginacion");
+function mostrarPaginacion() {
+  const totalPaginas = Math.ceil(posts.length / porPagina);
+  const paginacion = document.getElementById("pagination");
   paginacion.innerHTML = "";
 
   for (let i = 1; i <= totalPaginas; i++) {
-    const boton = document.createElement("button");
-    boton.innerText = i;
-    if (i === paginaActual) boton.disabled = true;
-    boton.addEventListener("click", () => {
+    const btn = document.createElement("button");
+    btn.innerText = i;
+    btn.onclick = () => {
       paginaActual = i;
       mostrarEntradas();
-    });
-    paginacion.appendChild(boton);
+    };
+    if (i === paginaActual) btn.disabled = true;
+    paginacion.appendChild(btn);
   }
 }
 
