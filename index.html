@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Iago Lorenzo | Ciberseguridad & Hacking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iago Lorenzo | Blog y Presentación</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -15,6 +15,7 @@
         <a href="#sobre-mi">Sobre mí</a>
         <a href="#proyectos">Proyectos</a>
         <a href="#contacto">Contacto</a>
+        <a href="#blog">Blog</a>
       </nav>
     </div>
   </header>
@@ -35,7 +36,7 @@
         </div>
         <div class="card">
           <h3>TryHackMe</h3>
-          <p>Mis progreso en TryHackMe.</p>
+          <p>Mi progreso en TryHackMe.</p>
           <a href="https://tryhackme.com/p/EvilPhoenix" target="_blank">Ver perfil →</a>
         </div>
         <div class="card">
@@ -50,6 +51,16 @@
       <h2>Contacto</h2>
       <p>Puedes escribirme a: <strong>lorenzomanriqueiago@gmail.com</strong></p>
     </section>
+
+    <section id="blog">
+      <h2>Blog</h2>
+      <div id="posts-list"></div>
+      <div id="pagination">
+        <button id="prevBtn" disabled>Anterior</button>
+        <span id="pageInfo"></span>
+        <button id="nextBtn">Siguiente</button>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -57,6 +68,55 @@
       <p>&copy; 2025 - Iago Lorenzo</p>
     </div>
   </footer>
+
+  <script src="posts.js"></script>
+  <script>
+    const postsPerPage = 1; // Puedes cambiar la cantidad de posts por página
+    let currentPage = 1;
+
+    function renderPosts() {
+      const postsList = document.getElementById('posts-list');
+      postsList.innerHTML = '';
+
+      const startIndex = (currentPage - 1) * postsPerPage;
+      const endIndex = startIndex + postsPerPage;
+      const paginatedPosts = posts.slice(startIndex, endIndex);
+
+      paginatedPosts.forEach(post => {
+        const postDiv = document.createElement('div');
+        postDiv.className = 'post-summary';
+        postDiv.innerHTML = `
+          <h3><a href="blog.html?id=${post.id}">${post.title}</a></h3>
+          <small>Publicado el ${post.date}</small>
+          <p>${post.summary}</p>
+        `;
+        postsList.appendChild(postDiv);
+      });
+
+      // Actualizar botones de paginación
+      document.getElementById('prevBtn').disabled = currentPage === 1;
+      document.getElementById('nextBtn').disabled = currentPage * postsPerPage >= posts.length;
+
+      document.getElementById('pageInfo').textContent = `Página ${currentPage} de ${Math.ceil(posts.length / postsPerPage)}`;
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        renderPosts();
+      }
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      if (currentPage * postsPerPage < posts.length) {
+        currentPage++;
+        renderPosts();
+      }
+    });
+
+    // Cargar posts la primera vez
+    renderPosts();
+  </script>
 </body>
 </html>
 

@@ -1,87 +1,65 @@
-:root {
-  --bg-color: #0d1117;
-  --text-color: #c9d1d9;
-  --accent: #58a6ff;
-  --card-bg: #161b22;
-}
+/* style.css */
 
 body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #333;
   margin: 0;
-  font-family: 'Courier New', monospace;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  padding: 0;
 }
 
 .container {
+  width: 90%;
   max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
+  margin: auto;
+  padding: 1em;
+  background: #fff;
 }
 
-header {
-  background: var(--card-bg);
-  text-align: center;
-  padding: 60px 20px;
+header, footer {
+  background: #222;
+  color: #fff;
+  padding: 1em 0;
 }
 
-header h1 {
+header h1, footer p {
   margin: 0;
-  font-size: 2.8em;
-  color: var(--accent);
-}
-
-header p {
-  font-size: 1.2em;
-  margin-top: 10px;
+  text-align: center;
 }
 
 nav {
-  margin-top: 20px;
+  text-align: center;
+  margin-top: 0.5em;
 }
 
 nav a {
-  margin: 0 10px;
-  color: var(--text-color);
+  color: #ddd;
+  margin: 0 1em;
   text-decoration: none;
   font-weight: bold;
 }
 
 nav a:hover {
-  color: var(--accent);
-}
-
-section {
-  margin: 40px 0;
-}
-
-h2 {
-  color: var(--accent);
-  border-bottom: 1px solid #30363d;
-  padding-bottom: 5px;
+  color: #fff;
 }
 
 .cards {
   display: flex;
+  gap: 1em;
   flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 20px;
+  justify-content: center;
 }
 
 .card {
-  background: var(--card-bg);
-  padding: 20px;
-  flex: 1 1 250px;
+  background: #eee;
+  padding: 1em;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(88, 166, 255, 0.1);
-}
-
-.card h3 {
-  margin-top: 0;
-  color: var(--accent);
+  flex: 1 1 250px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
 .card a {
-  color: #79c0ff;
+  color: #007acc;
   text-decoration: none;
   font-weight: bold;
 }
@@ -90,17 +68,56 @@ h2 {
   text-decoration: underline;
 }
 
-footer {
-  background: var(--card-bg);
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9em;
-  color: #8b949e;
+section {
+  margin-bottom: 2em;
 }
 
-@media (max-width: 600px) {
-  .cards {
-    flex-direction: column;
-  }
+#posts-list {
+  margin-top: 1em;
+}
+
+.post-summary {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 6px;
+}
+
+.post-summary h3 {
+  margin-top: 0;
+}
+
+.post-summary a {
+  color: #007acc;
+  text-decoration: none;
+}
+
+.post-summary a:hover {
+  text-decoration: underline;
+}
+
+#pagination {
+  text-align: center;
+  margin-top: 1em;
+}
+
+#pagination button {
+  background: #007acc;
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  margin: 0 0.5em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#pagination button:disabled {
+  background: #ccc;
+  cursor: default;
+}
+
+article {
+  line-height: 1.6;
 }
 
