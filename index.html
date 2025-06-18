@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Iago Lorenzo | Blog y Presentación</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iago Lorenzo | Ciberseguridad & Blog</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,9 +13,9 @@
       <p>Hacking · CTF Player · Seguridad Ofensiva</p>
       <nav>
         <a href="#sobre-mi">Sobre mí</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#contacto">Contacto</a>
         <a href="#blog">Blog</a>
+        <a href="#plataformas">Plataformas</a>
+        <a href="#contacto">Contacto</a>
       </nav>
     </div>
   </header>
@@ -26,7 +26,13 @@
       <p>Soy un apasionado del hacking. Me entreno en CTFs, laboratorios y plataformas como HackTheBox y TryHackMe. Me especializo en seguridad ofensiva y aprendizaje constante.</p>
     </section>
 
-    <section id="proyectos">
+    <section id="blog">
+      <h2>Blog</h2>
+      <div id="blog-entradas" class="cards"></div>
+      <div id="paginacion"></div>
+    </section>
+
+    <section id="plataformas">
       <h2>Plataformas</h2>
       <div class="cards">
         <div class="card">
@@ -51,16 +57,6 @@
       <h2>Contacto</h2>
       <p>Puedes escribirme a: <strong>lorenzomanriqueiago@gmail.com</strong></p>
     </section>
-
-    <section id="blog">
-      <h2>Blog</h2>
-      <div id="posts-list"></div>
-      <div id="pagination">
-        <button id="prevBtn" disabled>Anterior</button>
-        <span id="pageInfo"></span>
-        <button id="nextBtn">Siguiente</button>
-      </div>
-    </section>
   </main>
 
   <footer>
@@ -69,54 +65,7 @@
     </div>
   </footer>
 
-  <script src="posts.js"></script>
-  <script>
-    const postsPerPage = 1; // Puedes cambiar la cantidad de posts por página
-    let currentPage = 1;
-
-    function renderPosts() {
-      const postsList = document.getElementById('posts-list');
-      postsList.innerHTML = '';
-
-      const startIndex = (currentPage - 1) * postsPerPage;
-      const endIndex = startIndex + postsPerPage;
-      const paginatedPosts = posts.slice(startIndex, endIndex);
-
-      paginatedPosts.forEach(post => {
-        const postDiv = document.createElement('div');
-        postDiv.className = 'post-summary';
-        postDiv.innerHTML = `
-          <h3><a href="blog.html?id=${post.id}">${post.title}</a></h3>
-          <small>Publicado el ${post.date}</small>
-          <p>${post.summary}</p>
-        `;
-        postsList.appendChild(postDiv);
-      });
-
-      // Actualizar botones de paginación
-      document.getElementById('prevBtn').disabled = currentPage === 1;
-      document.getElementById('nextBtn').disabled = currentPage * postsPerPage >= posts.length;
-
-      document.getElementById('pageInfo').textContent = `Página ${currentPage} de ${Math.ceil(posts.length / postsPerPage)}`;
-    }
-
-    document.getElementById('prevBtn').addEventListener('click', () => {
-      if (currentPage > 1) {
-        currentPage--;
-        renderPosts();
-      }
-    });
-
-    document.getElementById('nextBtn').addEventListener('click', () => {
-      if (currentPage * postsPerPage < posts.length) {
-        currentPage++;
-        renderPosts();
-      }
-    });
-
-    // Cargar posts la primera vez
-    renderPosts();
-  </script>
+  <script src="js/blog.js"></script>
 </body>
 </html>
 
