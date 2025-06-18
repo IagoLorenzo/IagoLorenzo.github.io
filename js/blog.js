@@ -1,7 +1,7 @@
 const posts = [
   {
     title: "Proyecto OSINT con Gemini y Python",
-    resumen: "Un análisis completo sobre cómo hacer OSINT de imágenes en Instagram usando Google AI y Python.",
+    resumen: "Un análisis completo sobre cómo hacer OSINT de imágenes usando Google AI y Python.",
     link: "blog/post1.html"
   },
   {
