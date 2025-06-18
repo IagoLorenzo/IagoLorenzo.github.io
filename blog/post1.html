@@ -44,6 +44,14 @@
       <h2>Funcionamiento general</h2>
       <p>El programa analiza automáticamente cada imagen y genera un informe consolidado con información útil. Utiliza una API de Google para realizar el análisis semántico y visual.</p>
 
+      <h2>Modo de uso</h2>
+      <ul>
+        <li> Clona el repositorio en el directorio donde vayas a trabajar</li>
+        <li> Crea dentro el archivo .env con el contenido: <code>GEMINI_API_KEY= "substituye por tu API key"</code></li>
+        <li> Crea dentro tambien la ruta <code>perfiles_descargados/imagenes/</code> e incluye en su interior las imágenes a analizar con los formatos soportados <code>.png, jpg</code></li>
+        <li> Ejecuta <code>python3 main.py</code> y si tienes todas las librerías instaladas todo debería de funcionar.
+      </ul>
+
 
       <h2>Resultado</h2>
       <p>Como resultado, se obtiene un informe detallado y profesional redactado por la IA en formato <code>.pdf</code> convertido desde markdown, que resume lo más relevante de todas las imágenes analizadas, incluyendo posibles ubicaciones, objetos visibles, texto en carteles, personas, símbolos y cualquier dato potencialmente útil desde el punto de vista OSINT.</p>
@@ -54,7 +62,7 @@
         github.com/IagoLorenzo/OSINT-Images-IA
       </a></p>
 
-      <h2>⚖️ Consideraciones legales y éticas</h2>
+      <h2>Consideraciones legales y éticas</h2>
       <p>Este tipo de técnicas deben emplearse únicamente en contextos profesionales, educativos o legalmente autorizados. El uso indebido puede implicar consecuencias legales por violación de la privacidad o protección de datos.</p>
 
     </section>
