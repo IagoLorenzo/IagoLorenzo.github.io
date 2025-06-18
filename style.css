@@ -1,37 +1,10 @@
-/* Fuente hacker */
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
 body {
+  background-color: #000;
+  color: #ccc;
+  font-family: 'Courier New', monospace;
+  line-height: 1.6;
   margin: 0;
-  font-family: 'Share Tech Mono', monospace;
-  background-color: #0f0f0f;
-  color: #e0e0e0;
-}
-
-a {
-  color: #00ffe0;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-header {
-  background-color: #111;
-  padding: 2rem 0;
-  text-align: center;
-  border-bottom: 1px solid #222;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
-}
-
-nav a {
-  margin: 0 1rem;
-  font-weight: bold;
+  padding: 0;
 }
 
 .container {
@@ -41,10 +14,56 @@ nav a {
   padding: 2rem 0;
 }
 
-h2 {
+h1, h2, h3 {
   color: #00ffe0;
+}
+
+h2 {
   border-bottom: 1px solid #333;
   padding-bottom: 0.5rem;
+}
+
+pre {
+  background-color: #121212;
+  color: #00ff90;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+code {
+  background-color: #121212;
+  color: #00ff90;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+blockquote {
+  background-color: #222;
+  border-left: 4px solid #00ffe0;
+  padding: 1rem;
+  margin: 1rem 0;
+  color: #ccc;
+  font-style: italic;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+a {
+  color: #00ffe0;
+  text-decoration: underline;
+}
+
+footer {
+  background-color: #111;
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 1px solid #222;
 }
 
 .cards {
@@ -59,13 +78,6 @@ h2 {
   border: 1px solid #333;
   border-radius: 8px;
   flex: 1 1 250px;
-}
-
-footer {
-  background-color: #111;
-  text-align: center;
-  padding: 1rem 0;
-  border-top: 1px solid #222;
 }
 
 #blog-entries .card {

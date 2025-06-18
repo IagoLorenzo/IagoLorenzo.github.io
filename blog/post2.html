@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cómo convertir un Arduino Uno R4 Minima en un Rubber Ducky</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Cómo convertir un Arduino Uno R4 Minima en un Rubber Ducky (emulador de teclado HID)</h1>
+      <p><strong>Publicado el 18 de junio de 2025</strong><br>Por Iago Lorenzo Manrique</p>
+    </header>
+
+    <section>
+      <p>En esta entrada os explico paso a paso cómo transformé un Arduino Uno R4 Minima en un <em>Rubber Ducky</em>, es decir, un dispositivo capaz de emular un teclado y ejecutar comandos automáticamente al conectarse a un ordenador.</p>
+      
+      <blockquote>⚠️ <strong>Este proyecto es solo para fines educativos. No está permitido usarlo en sistemas sin autorización explícita.</strong></blockquote>
+
+      <h2>¿Qué es un Rubber Ducky?</h2>
+      <p>Un <em>Rubber Ducky</em> es un dispositivo USB que se comporta como un teclado. Al conectarlo a un sistema, puede enviar pulsaciones de teclas como si las escribiera un humano, pero mucho más rápido y automáticamente.</p>
+
+      <h2>⚙️ ¿Por qué el Uno R4 Minima?</h2>
+      <p>Aunque el Uno R4 Minima no tiene soporte HID nativo, podemos usar un firmware y la librería <code>Keyboard.h</code> para simular un teclado y enviar comandos.</p>
+
+      <h2>Materiales</h2>
+      <ul>
+        <li>Arduino Uno R4 Minima</li>
+        <li>Cable USB-C</li>
+        <li>Arduino IDE</li>
+        <li>Teclado del sistema en inglés (US)</li>
+        <li>Librería <code>Keyboard.h</code> instalada</li>
+      </ul>
+
+      <h2>Paso 1: Preparar el entorno</h2>
+      <p>Instala el soporte de la placa Uno R4 en el Arduino IDE.</p>
+
+      <h2>Paso 2: Instalar la librería Keyboard</h2>
+      <p>Desde el IDE de Arduino: <code>Sketch &gt; Incluir Librería &gt; Gestionar bibliotecas</code> y busca <strong>Keyboard</strong>.</p>
+
+      <h2>Paso 3: Sketch de ejemplo</h2>
+      <p>Este script abrirá PowerShell y ejecutará <code>ipconfig</code>:</p>
+
+<pre><code>#include &lt;Keyboard.h&gt;
+
+void setup() {
+  delay(3000); // Espera a que el sistema detecte el HID
+
+  Keyboard.begin();
+
+  // Abrir "Ejecutar"
+  Keyboard.press(KEY_LEFT_GUI);
+  Keyboard.press('r');
+  delay(100);
+  Keyboard.releaseAll();
+  delay(300);
+
+  // Escribir "powershell"
+  Keyboard.print("powershell");
+  Keyboard.press(KEY_RETURN);
+  Keyboard.releaseAll();
+  delay(800);
+
+  // Ejecutar comando
+  Keyboard.print("ipconfig");
+  Keyboard.press(KEY_RETURN);
+  Keyboard.releaseAll();
+}
+
+void loop() {
+  // Nada aquí
+}
+</code></pre>
+
+      <blockquote>⚠️ Asegúrate de que el sistema objetivo tenga el layout de teclado en inglés (US), o los caracteres pueden no coincidir.</blockquote>
+
+      <h2>Consejos</h2>
+      <ul>
+        <li>Usa <code>delay()</code> para evitar errores por velocidad excesiva.</li>
+        <li>Puedes modificar el script para hacer tareas más complejas: lanzar scripts, abrir navegadores, conectar shells, etc.</li>
+        <li>Evita entornos protegidos con UAC o antivirus que bloqueen el dispositivo.</li>
+      </ul>
+
+      <h2>Conclusiones</h2>
+      <p>El Uno R4 Minima, aunque no fue pensado para HID, puede convertirse en un Rubber Ducky funcional para pruebas de seguridad y CTFs. Una opción barata, flexible y potente para quienes entrenamos ciberseguridad.</p>
+
+      <h2>¿Te interesa una carga útil más avanzada?</h2>
+      <p>Puedo publicar una segunda parte mostrando cómo usar este dispositivo para desplegar un <em>reverse shell</em> o herramientas post-explotación.</p>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Iago Lorenzo Manrique. Todos los derechos reservados.</p>
+    </footer>
+  </div>
+</body>
+</html>
+
